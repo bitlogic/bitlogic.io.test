@@ -1,0 +1,14 @@
+pipeline:
+  build:
+    image: golang:alpine
+    commands:
+      - apk --no-cache add git
+      - go get -t ./...
+      - go test ./...
+      - go build ./...
+  dockerize-smoke-test:
+    image: plugins/docker
+    repo: bitlogicos/bitlogic-io-test
+    tag:
+    - latest
+    - "1.0.${DRONE_BUILD_NUMBER}"
