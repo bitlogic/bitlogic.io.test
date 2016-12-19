@@ -1,3 +1,6 @@
+workspace:
+  base: /go
+  path: src/github.com/bitlogic/bitlogic.io.test
 pipeline:
   build:
     image: golang:alpine
@@ -12,4 +15,3 @@ pipeline:
     tag:
     - latest
     - "1.0.${DRONE_BUILD_NUMBER}"
-
